@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sky2"
+    tools:context=".EmergencyActivity">
+
+
+    <TextView
+        android:id="@+id/EmergencyTitle"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/EmergencyText"
+        android:layout_alignRight="@+id/EmergencyText"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+
+        android:layout_marginRight="10dp"
+        android:layout_top="@+id/EmergencyText"
+        android:gravity="center"
+        android:text="아래 내용을 전송하겠습니다。"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/EmergencyText"
+        android:layout_width="wrap_content"
+        android:layout_height="263dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:background="@drawable/rect"
+        android:gravity="center"
+        android:text="-"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EmergencyText"
+        android:layout_alignEnd="@+id/EmergencyText"
+        android:layout_alignRight="@+id/EmergencyText"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginRight="153dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="전송"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EmergencyText"
+        android:layout_alignEnd="@+id/EmergencyText"
+        android:layout_alignRight="@+id/EmergencyText"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginRight="153dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="뒤로가기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</RelativeLayout>
