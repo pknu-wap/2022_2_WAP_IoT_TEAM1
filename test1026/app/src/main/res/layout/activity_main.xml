@@ -1,71 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:padding="20dp"
+    android:background="@color/green_200"
+    tools:context=".MainActivity">
 
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/message"/>
+
+    <TextView
+        android:id="@+id/mainTextView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        android:weightSum="4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:background="@drawable/sky2"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="@string/intro_main"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/option_1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@drawable/rect"
-            android:textSize="28sp"
-            android:text="긴급 연락처" />
-
-        <Button
-            android:id="@+id/btnGoMyPage"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/selection"
-            android:gravity="center"
-            android:textSize="28sp"
-            android:text="마이페이지" />
-
-        <Button
-            android:id="@+id/btnGoAnalsys"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/selection"
-            android:gravity="center"
-            android:textSize="28sp"
-            android:text="분석화면" />
-
-        <Button
-            android:id="@+id/btnGoEmer"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/selection"
-            android:gravity="center"
-            android:textSize="28sp"
-            android:text="긴급문자 발송" />
+    <TextView
+        android:id="@+id/detailTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainTextView"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:text="@string/intro_detail" />
 
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/EmergencyCall"
+        android:layout_width="381dp"
+        android:layout_height="118dp"
+        android:layout_below="@id/mainTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center_horizontal"
+        android:text="@string/intro_EmergencyCall"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/BtnGoToMy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/BtnPlan"
+        android:layout_marginTop="-126dp"
+        android:layout_marginBottom="140dp"
+        android:text="@string/intro_goMy" />
+
+    <Button
+        android:id="@+id/BtnGoToAnalsys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/BtnPlan"
+        android:layout_marginTop="-126dp"
+        android:layout_marginBottom="206dp"
+        android:text="@string/intro_goAnalsys" />
+
+    <Button
+        android:id="@+id/BtnGoToEmergency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/BtnPlan"
+        android:layout_marginTop="-126dp"
+        android:layout_marginBottom="76dp"
+
+        android:text="@string/intro_goEmergency" />
+
+    <Button
+        android:id="@+id/BtnPlan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="42dp"
+        android:gravity="center_horizontal"
+        android:text="@string/intro_plan" />
+
+    <Button
+        android:id="@+id/BtnSetTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="105dp"
+        android:gravity="center_horizontal"
+        android:text="@string/intro_setTime" />
+
+    <Button
+        android:id="@+id/option_1"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="683dp"
+        android:gravity="center_horizontal"
+        android:text="알림(test용)" />
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

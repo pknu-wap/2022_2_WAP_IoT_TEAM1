@@ -4,9 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sky2"
+    android:background="@color/green_200"
     tools:context=".EmergencyActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/message"/>
 
     <TextView
         android:id="@+id/EmergencyTitle"
@@ -15,21 +23,20 @@
         android:layout_alignEnd="@+id/EmergencyText"
         android:layout_alignRight="@+id/EmergencyText"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="11dp"
 
-        android:layout_marginRight="10dp"
-        android:layout_top="@+id/EmergencyText"
+        android:layout_marginRight="11dp"
         android:gravity="center"
-        android:text="아래 내용을 전송하겠습니다。"
+        android:text="아래 내용을 전송하겠습니다."
         android:textSize="28sp" />
 
     <TextView
         android:id="@+id/EmergencyText"
         android:layout_width="wrap_content"
-        android:layout_height="263dp"
+        android:layout_height="346dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -42,7 +49,8 @@
         android:layout_marginRight="11dp"
         android:background="@drawable/rect"
         android:gravity="center"
-        android:text="-"
+        android:text="관심단계:주의\n 상태확인바랍니다.\n이름:홍길동\n 전화번호:010-1234-5678\n
+ 주소: 부산광역시 00구 00동 \n 병력사항: 고혈압, 거동 불편"
         android:textColor="@android:color/black"
         android:textSize="30sp" />
 

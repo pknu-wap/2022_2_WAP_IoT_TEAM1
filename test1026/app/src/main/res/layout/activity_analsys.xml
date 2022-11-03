@@ -4,12 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sky2"
+    android:background="@color/green_200"
     tools:context=".AnalsysActivity">
 
 
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/message"/>
+
     <TextView
-        android:id="@+id/dustText"
+        android:id="@+id/matText"
         android:layout_width="389dp"
         android:layout_height="117dp"
         android:layout_alignParentStart="true"
@@ -17,22 +27,22 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/rect"
         android:gravity="center"
-        android:text="-"
-        android:textColor="@android:color/black"
+        android:text="주의요함\n 4시간 08분"
+        android:textColor="@android:color/holo_orange_dark"
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/tempText"
+        android:id="@+id/lightText"
         android:layout_width="389dp"
         android:layout_height="117dp"
-        android:layout_below="@+id/humText"
+        android:layout_below="@+id/frigerText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -42,15 +52,16 @@
         android:layout_marginRight="12dp"
         android:background="@drawable/rect"
         android:gravity="center"
-        android:text="-"
-        android:textColor="@android:color/black"
+        android:text="사용중\n3시간 42분"
+
+        android:textColor="@android:color/holo_green_dark"
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/humText"
+        android:id="@+id/frigerText"
         android:layout_width="389dp"
         android:layout_height="117dp"
-        android:layout_below="@+id/dustText"
+        android:layout_below="@+id/matText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -60,91 +71,63 @@
         android:layout_marginRight="12dp"
         android:background="@drawable/rect"
         android:gravity="center"
-        android:text="-"
-        android:textColor="@android:color/black"
+        android:text="열려있음"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="30sp" />
 
     <ImageView
-        android:id="@+id/dustLogo"
-        android:src="@drawable/dust"
+        android:id="@+id/matLogo"
+        android:src="@drawable/mat"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignStart="@+id/dustText"
-        android:layout_alignLeft="@+id/dustText"
-        android:layout_alignTop="@+id/dustText"
+        android:layout_alignStart="@+id/matText"
+        android:layout_alignLeft="@+id/matText"
+        android:layout_alignTop="@+id/matText"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="29dp" />
 
     <ImageView
-        android:id="@+id/tempLogo"
-        android:src="@drawable/temperature"
+        android:id="@+id/lightLogo"
+        android:src="@drawable/light"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignStart="@+id/dustText"
-        android:layout_alignLeft="@+id/dustText"
-        android:layout_alignTop="@+id/tempText"
+        android:layout_alignStart="@+id/matText"
+        android:layout_alignLeft="@+id/matText"
+        android:layout_alignTop="@+id/lightText"
         android:layout_marginStart="14dp"
         android:layout_marginLeft="14dp"
         android:layout_marginTop="28dp" />
 
     <ImageView
-        android:id="@+id/humLogo"
-        android:src="@drawable/hum"
+        android:id="@+id/frigerLogo"
+        android:src="@drawable/friger"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignStart="@+id/humText"
-        android:layout_alignLeft="@+id/humText"
-        android:layout_alignTop="@+id/humText"
+        android:layout_alignStart="@+id/frigerText"
+        android:layout_alignLeft="@+id/frigerText"
+        android:layout_alignTop="@+id/frigerText"
         android:layout_marginStart="14dp"
         android:layout_marginLeft="14dp"
         android:layout_marginTop="29dp" />
-
-    <ImageButton
-        android:id="@+id/alarmButton"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="153dp"
-        android:layout_marginLeft="153dp"
-        android:layout_marginTop="474dp"
-        android:layout_marginBottom="0dp"
-        android:background="@drawable/oval"
-        android:src="@drawable/alarm" />
-
-    <TextView
-        android:id="@+id/alarmtText"
-        android:layout_width="85dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/alarmButton"
-
-        android:layout_alignEnd="@+id/alarmButton"
-        android:layout_alignRight="@+id/alarmButton"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="16dp"
-
-        android:background="@drawable/shape_button"
-        android:gravity="center"
-        android:text="알람 On/Off" />
-
 
     <Button
         android:id="@+id/btnClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/alarmtText"
-        android:layout_alignEnd="@+id/alarmtText"
-        android:layout_alignRight="@+id/alarmtText"
-        android:layout_marginTop="0dp"
+        android:layout_below="@+id/lightText"
+        android:layout_alignEnd="@+id/lightText"
+        android:layout_alignRight="@+id/lightText"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="뒤로가기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 </RelativeLayout>
 

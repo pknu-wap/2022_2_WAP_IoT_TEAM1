@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">test1026</string>
+
+<string name="app_name">늘돌봄☘</string>
+<string name="intro_main">
+    늘돌봄☘ 은 일상과 함께 합니다
+    </string>
+<string name="intro_detail">
+        관심, 집중, 경고 모드에 따라서 메세지가 전송됩니다.
+    </string>
+    <string name="intro_EmergencyCall">
+        비상연락처\n
+        보호자A 010-0000-0000\n
+        보호자B 010-0000-0000\n
+        보호자C 010-0000-0000
+    </string>
+<string name="intro_setTime">시간 설정하러가기 ☘</string>
+<string name="intro_plan">일정 등록하기 ☘</string>
+<string name="intro_goMain">메인화면으로 가기 ☘</string>
+    <string name="intro_goMy">마이페이지로 가기 ☘</string>
+    <string name="intro_goAnalsys">분석화면으로 가기 ☘</string>
+    <string name="intro_goEmergency">긴급 메세지 전송화면으로 가기 ☘</string>
 </resources>
