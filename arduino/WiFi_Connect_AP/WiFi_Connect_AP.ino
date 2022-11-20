@@ -13,8 +13,8 @@ String output26State = "off";
 String output27State = "off";
 // Auxiliar variables to store the current output state
 
-#define output26 = 26;
-#define output27 = 27; // Assign output variables to GPIO pins
+#define output26 26
+#define output27 27 // Assign output variables to GPIO pins
 
 int led_st = LOW;
 int swt_st;
@@ -57,36 +57,47 @@ void loop()
   {                             // If a new client connects,
     Serial.println("New Client.");          // print a message out in the serial port
     String currentLine = "";                // make a String to hold incoming data from the client
-    while (client.connected()) {            // loop while the client's connected
-      if (client.available()) {             // if there's bytes to read from the client,
+    while (client.connected())
+    {                                       // loop while the client's connected
+      if (client.available()) 
+      {                                     // if there's bytes to read from the client,
         char c = client.read();             // read a byte, then
         Serial.write(c);                    // print it out the serial monitor
         header += c;
-        if (c == '\n') {                    // if the byte is a newline character
-          // if the current line is blank, you got two newline characters in a row.
-          // that's the end of the client HTTP request, so send a response:
-          if (currentLine.length() == 0) {
-            // HTTP headers always start with a response code (e.g. HTTP/1.1 200 OK)
-            // and a content-type so the client knows what's coming, then a blank line:
+        if (c == '\n') 
+        {                                   // if the byte is a newline character
+                                            // if the current line is blank, you got two newline characters in a row.
+                                            // that's the end of the client HTTP request, so send a response:
+          if (currentLine.length() == 0)
+          {
+                                            // HTTP headers always start with a response code (e.g. HTTP/1.1 200 OK)
+                                            // and a content-type so the client knows what's coming, then a blank line:
             client.println("HTTP/1.1 200 OK");
             client.println("Content-type:text/html");
             client.println("Connection: close");
             client.println();
             
             // turns the GPIOs on and off
-            if (header.indexOf("GET /26/on") >= 0) {
+            if (header.indexOf("GET /26/on") >= 0) 
+            {
               Serial.println("GPIO 26 on");
               output26State = "on";
               digitalWrite(output26, HIGH);
-            } else if (header.indexOf("GET /26/off") >= 0) {
+            }
+            else if (header.indexOf("GET /26/off") >= 0)
+            {
               Serial.println("GPIO 26 off");
               output26State = "off";
               digitalWrite(output26, LOW);
-            } else if (header.indexOf("GET /27/on") >= 0) {
+            }
+            else if (header.indexOf("GET /27/on") >= 0) 
+            {
               Serial.println("GPIO 27 on");
               output27State = "on";
               digitalWrite(output27, HIGH);
-            } else if (header.indexOf("GET /27/off") >= 0) {
+            } 
+            else if (header.indexOf("GET /27/off") >= 0) 
+            {
               Serial.println("GPIO 27 off");
               output27State = "off";
               digitalWrite(output27, LOW);
@@ -109,18 +120,24 @@ void loop()
             // Display current state, and ON/OFF buttons for GPIO 26  
             client.println("<p>GPIO 26 - State " + output26State + "</p>");
             // If the output26State is off, it displays the ON button       
-            if (output26State=="off") {
+            if (output26State=="off") 
+            {
               client.println("<p><a href=\"/26/on\"><button class=\"button\">ON</button></a></p>");
-            } else {
+            }
+            else
+            {
               client.println("<p><a href=\"/26/off\"><button class=\"button button2\">OFF</button></a></p>");
             } 
                
             // Display current state, and ON/OFF buttons for GPIO 27  
             client.println("<p>GPIO 27 - State " + output27State + "</p>");
             // If the output27State is off, it displays the ON button       
-            if (output27State=="off") {
+            if (output27State=="off") 
+            {
               client.println("<p><a href=\"/27/on\"><button class=\"button\">ON</button></a></p>");
-            } else {
+            }
+            else 
+            {
               client.println("<p><a href=\"/27/off\"><button class=\"button button2\">OFF</button></a></p>");
             }
             client.println("</body></html>");
@@ -129,10 +146,14 @@ void loop()
             client.println();
             // Break out of the while loop
             break;
-          } else { // if you got a newline, then clear currentLine
+          } 
+          else 
+          { // if you got a newline, then clear currentLine
             currentLine = "";
           }
-        } else if (c != '\r') {  // if you got anything else but a carriage return character,
+        }
+        else if (c != '\r') 
+        {  // if you got anything else but a carriage return character,
           currentLine += c;      // add it to the end of the currentLine
         }
       }
@@ -155,4 +176,6 @@ void loop()
     led_st = !led_st;
     digitalWrite(LED_BUILTIN, led_st);
   }
+
+  
 }
