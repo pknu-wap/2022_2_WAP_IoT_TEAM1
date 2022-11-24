@@ -6,15 +6,15 @@
 #define WIFI_PASSWORD "030322"
 #define WIFI_TIMEOUT_MS 20000
 
+#define output26 26
+#define output27 27 // Assign output variables to GPIO pins
+
 WiFiServer server(80); //Set web server port number to 80
 String header; // Variable to store the HTTP request
 
 String output26State = "off";
 String output27State = "off";
 // Auxiliar variables to store the current output state
-
-#define output26 26
-#define output27 27 // Assign output variables to GPIO pins
 
 int led_st = LOW;
 int swt_st;
