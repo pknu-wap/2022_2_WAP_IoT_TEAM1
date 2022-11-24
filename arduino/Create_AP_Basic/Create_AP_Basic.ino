@@ -3,6 +3,7 @@
 const char* ssid = "Connect_AP";
 const char* password = "seongwoo";
 
+
 void setup() 
 {
   Serial.begin(115200);
@@ -18,3 +19,5 @@ void loop()
 {
 
 }
+
+//Success to connect WiFi to Phone.
