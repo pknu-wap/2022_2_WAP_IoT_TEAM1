@@ -39,18 +39,42 @@
 
 
     <TextView
-        android:id="@+id/EmergencyCall"
-        android:layout_width="381dp"
-        android:layout_height="118dp"
-        android:layout_below="@id/mainTextView"
+        android:id="@+id/EmergencyCall_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:gravity="center"
+        android:text="비상연락처"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/gdName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:gravity="center"
+        android:text="보호자이름"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/gdNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:gravity="center"
+        android:text="보호자전화번호"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/gdbutton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center_horizontal"
-        android:text="@string/intro_EmergencyCall"
-        android:textSize="15sp" />
+        android:layout_marginStart="241dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="0dp"
+        android:text="정보 수정" />
 
     <Button
         android:id="@+id/BtnGoToMy"
@@ -100,12 +124,10 @@
 
     <Button
         android:id="@+id/option_1"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_alignParentTop="true"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="683dp"
+        android:layout_marginBottom="647dp"
         android:gravity="center_horizontal"
         android:text="알림(test용)" />
 

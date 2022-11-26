@@ -20,6 +20,9 @@ import android.content.Context
 import androidx.core.app.NotificationCompat
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_myinfo.*
+import kotlinx.android.synthetic.main.inputlayout2.view.*
+import kotlinx.android.synthetic.main.updatelayout2.view.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +50,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        registerForContextMenu(gdbutton)
+
 
         var option_1 = findViewById(R.id.option_1) as Button
         option_1.setOnClickListener {
@@ -72,6 +77,57 @@ class MainActivity : AppCompatActivity() {
                 notificationManager.notify(1002, builder.build())
             }
         }
+    }
+    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        var mInflater = this.menuInflater
+        if(v===gdbutton){
+            menu!!.setHeaderTitle("보호자 정보")
+            mInflater.inflate(R.menu.menu2, menu)
+        }
+        //추가 if문으로 다수의 위젯에 context menu를 부착할 수 있음
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.insert->{
+                var dialogView = View.inflate(this@MainActivity, R.layout.inputlayout2, null)
+                var dlg = AlertDialog.Builder(this@MainActivity)
+                dlg.setTitle("정보 입력")
+                dlg.setIcon(R.drawable.ic_menu_allfriends)
+                dlg.setView(dialogView)
+                dlg.setPositiveButton("확인"){dialogInterface, i ->
+                    gdName.text = dialogView.guardName_insert.text.toString()
+                    gdNumber.text = dialogView.guardNumber_insert.text.toString()
+                }
+                dlg.setNegativeButton("취소"){dialogInterface, i ->
+                    Toast.makeText(this, "취소했습니다",Toast.LENGTH_SHORT).show()
+                }
+                dlg.show()
+            }
+            R.id.update->{
+                var name = gdName.text.toString()
+                var number = gdNumber.text.toString()
+                var dialogView = View.inflate(this@MainActivity, R.layout.updatelayout2, null)
+                var dlg = AlertDialog.Builder(this@MainActivity)
+                dlg.setTitle("기존 정보 수정")
+                dlg.setIcon(R.drawable.ic_menu_allfriends)
+                dlg.setView(dialogView)
+                dialogView.guardName_update.setText(name)
+                dialogView.guardNumber_update.setText(number)
+                dlg.setPositiveButton("확인"){dialogInterface, i ->
+                    gdName.text = dialogView.guardName_update.text.toString()
+                    gdNumber.text = dialogView.guardNumber_update.text.toString()
+                }
+                dlg.setNegativeButton("취소"){dialogInterface, i ->
+                    Toast.makeText(this, "취소했습니다",Toast.LENGTH_SHORT).show()
+                }
+                dlg.show()
+            }
+        }
+        return true
+
+
     }
 }
 

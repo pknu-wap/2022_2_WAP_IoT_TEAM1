@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/insert"
+        android:title="정보 입력" />
+    <item
+        android:id="@+id/update"
+        android:title="정보 수정" />
+</menu>

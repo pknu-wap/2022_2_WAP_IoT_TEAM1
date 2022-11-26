@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/gd1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이름" />
+
+    <EditText
+        android:id="@+id/guardName_insert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Name" />
+
+    <TextView
+        android:id="@+id/gd2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="전화번호" />
+
+    <EditText
+        android:id="@+id/guardNumber_insert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Phone number" />
+</LinearLayout>
