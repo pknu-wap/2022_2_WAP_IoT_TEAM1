@@ -3,6 +3,11 @@
 #include <WiFiAP.h>
 
 #define LED_BUILTIN 2
+#define SWT_PIN 21
+
+int led_st = LOW;
+int swt_st, last_swt_st;
+int count_sec = 0;
 
 const char *ssid = "APMode";
 const char *password = "nevergiveup";
@@ -11,8 +16,11 @@ WiFiServer server(80);
 
 void setup() 
 {
-  pinMode (LED_BUILTIN, OUTPUT);
+  pinMode(SWT_PIN, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
 
+  swt_st = digitalRead(SWT_PIN);
+  
   Serial.begin(115200);
   Serial.println();
   Serial.println("Configuring access point...");
@@ -28,6 +36,7 @@ void setup()
 
 void loop()
 {
+  count_sec += 1;
    WiFiClient client = server.available();   // listen for incoming clients
 
   if (client) 
@@ -55,7 +64,9 @@ void loop()
             // the content of the HTTP response follows the header:
             client.print("Click <a href=\"/H\">here</a> to turn ON the LED.<br>");
             client.print("Click <a href=\"/L\">here</a> to turn OFF the LED.<br>");
-
+            client.print("The led doesn't changed for");
+            client.println(count_sec);
+            client.print("seconds.");
             // The HTTP response ends with another blank line:
             client.println();
             // break out of the while loop:
@@ -66,6 +77,7 @@ void loop()
             currentLine = "";
           }
         } 
+        
         else if (c != '\r') 
         {  // if you got anything else but a carriage return character,
           currentLine += c;      // add it to the end of the currentLine
