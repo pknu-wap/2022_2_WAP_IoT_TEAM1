@@ -7,7 +7,9 @@
 
 int led_st = LOW;
 int swt_st, last_swt_st;
-int count_sec = 0;
+
+unsigned long long int count_sec = 0;
+unsigned long long int cur_sec = 0;
 
 const char *ssid = "APMode";
 const char *password = "nevergiveup";
@@ -15,7 +17,7 @@ const char *password = "nevergiveup";
 WiFiServer server(80);
 
 void setup() 
-{
+{  
   pinMode(SWT_PIN, INPUT_PULLUP);
   pinMode(LED_BUILTIN, OUTPUT);
 
@@ -36,7 +38,10 @@ void setup()
 
 void loop()
 {
-  count_sec += 1;
+  cur_sec = millis();
+  swt_st = digitalRead(SWT_PIN);
+  count_sec = cur_sec/1000;
+  
    WiFiClient client = server.available();   // listen for incoming clients
 
   if (client) 
@@ -61,12 +66,17 @@ void loop()
             client.println("Content-type:text/html");
             client.println();
 
-            // the content of the HTTP response follows the header:
+            /* the content of the HTTP response follows the header:
             client.print("Click <a href=\"/H\">here</a> to turn ON the LED.<br>");
-            client.print("Click <a href=\"/L\">here</a> to turn OFF the LED.<br>");
+            client.print("Click <a href=\"/L\">here</a> to turn OFF the LED.<br>");*/
             client.print("The led doesn't changed for");
             client.println(count_sec);
             client.print("seconds.");
+            if(last_swt_st != swt_st)
+            {
+              cur_sec = 0;
+              last_swt_st = swt_st;
+            }
             // The HTTP response ends with another blank line:
             client.println();
             // break out of the while loop:
@@ -84,14 +94,17 @@ void loop()
         }
 
         // Check to see if the client request was "GET /H" or "GET /L":
-        if (currentLine.endsWith("GET /H")) 
+       /* if (currentLine.endsWith("GET /H")) 
         {
           digitalWrite(LED_BUILTIN, HIGH);               // GET /H turns the LED on
+        
         }
         if (currentLine.endsWith("GET /L")) 
         {
           digitalWrite(LED_BUILTIN, LOW);                // GET /L turns the LED off
+        
         }
+        */
       }
     }
     // close the connection:
