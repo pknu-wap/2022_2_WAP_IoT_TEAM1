@@ -1,9 +1,16 @@
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <WiFiAP.h>
+#include <HTTPClient.h>
+#include <ArduinoJson.h>
+
+/*
+ * IPAddress 를 써도 된다. 일단 지금 당장은 필요 없을 것으로 예상됨.
+ */
 
 #define LED_PIN 4
 #define SWT_PIN 21
+#define LED_BUILTIN 2
 
 int led_st = LOW;
 int swt_st, last_swt_st;
@@ -12,6 +19,10 @@ unsigned long lastt = 0;
 const char *ssid = "APMode";
 const char *password = "nevergiveup";
 
+const char* ntpServer = "pool.ntp.org"; // Change to my ntpserver.
+const char* serverName = "<mongo-server-endpoing-url>"; // change to my server name.
+
+StaticJsonDocument<500> doc;
 WiFiServer server(80);
 
 void setup() 
@@ -30,6 +41,7 @@ void setup()
   server.begin();
   
   Serial.println("Server started");
+  configTime(0, 0, ntpServer);
 }
 
 void loop()
@@ -114,8 +126,40 @@ void loop()
         */
       }
     }
+    doc["sensors"]["time"] = NotPressedTime;
     // close the connection:
     client.stop();
     Serial.println("Client Disconnected.");
+    POSTData();
+  }
+}
+
+void POSTData()
+{
+  if(WiFi.status() == WL_CONNECTED)
+  {
+    HTTPClient http;
+
+    http.begin(serverName);
+    http.addHeader("Content-Type", "application/json");
+
+    String json;
+    serializeJson(doc, json);
+
+    Serial.println(json);
+    int httpResponseCode = http.POST(json);
+    Serial.println(httpResponseCode);
+
+    if(httpResponseCode == 200)
+    {
+      Serial.println("Data uploaded.");
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(1000);
+      digitalWrite(LED_BUILTIN, LOW);
+    }
+    else
+    {
+      Serial.println("ERROR : Couldn't upload Data.");
+    }
   }
 }
