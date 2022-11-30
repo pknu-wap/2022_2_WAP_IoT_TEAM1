@@ -1,18 +1,13 @@
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <WiFiAP.h>
-#include <cmath>
 
 #define LED_PIN 4
 #define SWT_PIN 21
 
 int led_st = LOW;
 int swt_st, last_swt_st;
-
-unsigned long long int count_sec = 0;
-unsigned long long int cur_sec = 0;
-extern volatile unsigned long timer0;
-unsigned long new_value = 0;
+unsigned long lastt = 0;
 
 const char *ssid = "APMode";
 const char *password = "nevergiveup";
@@ -39,10 +34,12 @@ void setup()
 
 void loop()
 {
-  cur_sec = millis();
-  swt_st = digitalRead(SWT_PIN);
-  count_sec = cur_sec/1000;
+  unsigned long startmil = millis();
+  unsigned long stopmil = millis();
 
+  unsigned long NotPressedTime = startmil - lastt;
+  swt_st = digitalRead(SWT_PIN);
+  
   if(swt_st == HIGH)
   {
     digitalWrite(LED_PIN, HIGH);
@@ -75,18 +72,18 @@ void loop()
             client.println("HTTP/1.1 200 OK");
             client.println("Content-type:text/html");
             client.println();
-
-            /* the content of the HTTP response follows the header:
-            client.print("Click <a href=\"/H\">here</a> to turn ON the LED.<br>");
-            client.print("Click <a href=\"/L\">here</a> to turn OFF the LED.<br>");*/
-            client.print("The led doesn't changed for");
-            client.println(count_sec);
-            client.print("seconds.");
+            
             if(last_swt_st != swt_st)
             {
-              cur_sec = 0;
+              lastt = stopmil;
+              NotPressedTime = startmil - lastt;
               last_swt_st = swt_st;
             }
+
+            client.print("The led doesn't changed for");
+            client.println(NotPressedTime/1000);
+            client.print("seconds.");
+
             // The HTTP response ends with another blank line:
             client.println();
             // break out of the while loop:
@@ -121,18 +118,4 @@ void loop()
     client.stop();
     Serial.println("Client Disconnected.");
   }
-  setMillis(new_value);
 }
-
-void setMillis(unsigned long new_millis)
-{
-  uint8_t oldSREG = SREG;
-  cli();
-  timer0 = new_millis;
-  SREG = oldSREG;
-}
-
-/* 바꿔야 할 점 : real time 으로 초기화 계속 시키기
- * 
- *  
- */
