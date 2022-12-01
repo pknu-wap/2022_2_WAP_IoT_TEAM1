@@ -124,13 +124,6 @@ void loop()
   setMillis(new_value);
 }
 
-void setMillis(unsigned long new_millis)
-{
-  uint8_t oldSREG = SREG;
-  cli();
-  timer0 = new_millis;
-  SREG = oldSREG;
-}
 
 /* 바꿔야 할 점 : real time 으로 초기화 계속 시키기
  * 
