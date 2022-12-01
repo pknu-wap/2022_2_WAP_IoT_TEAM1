@@ -61,6 +61,7 @@ void setup()
   pinMode(LED_PIN, OUTPUT);
 
   Serial.begin(115200);
+  WiFi.mode(WIFI_AP);
   Serial.println();
   Serial.println("Configuring access point...");
   
@@ -104,7 +105,7 @@ void loop()
    WiFiClient client = server.available();   // listen for incoming clients
 
   
-  doc["sensors"]["time"] = NotPressedTime/1000;
+  doc["sensors"]["time_of_Button"] = NotPressedTime/1000;
   Serial.println(NotPressedTime/1000);
   POSTData();
 }
