@@ -3,18 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TimePicker
         android:id="@+id/timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="118dp"
         android:timePickerMode="spinner" />
 
-    <TextView
-        android:id="@+id/time_text"
+    <Button
+        android:id="@+id/setTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="300dp"
+        android:text="설정하기" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textSize="30sp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/timePicker"/>
+        android:layout_marginStart="106dp"
+        android:layout_marginBottom="183dp"
+        android:textSize="30sp" />
+
+
 </RelativeLayout>
