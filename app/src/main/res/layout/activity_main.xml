@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/green_200"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/message"/>
+
+    <TextView
+        android:id="@+id/mainTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="@string/intro_main"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/detailTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainTextView"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:text="@string/intro_detail" />
+
+
+    <TextView
+        android:id="@+id/EmergencyCall_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:gravity="center"
+        android:text="비상연락처"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/gdName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:gravity="center"
+        android:text="보호자이름"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/gdNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:gravity="center"
+        android:text="보호자전화번호"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/gdbutton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="241dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="0dp"
+        android:text="정보 수정" />
+
+    <Button
+        android:id="@+id/BtnGoToMy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/BtnPlan"
+        android:layout_marginTop="-126dp"
+        android:layout_marginBottom="140dp"
+        android:text="@string/intro_goMy" />
+
+    <Button
+        android:id="@+id/BtnGoToAnalsys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/BtnPlan"
+        android:layout_marginTop="-126dp"
+        android:layout_marginBottom="206dp"
+        android:text="@string/intro_goAnalsys" />
+
+    <Button
+        android:id="@+id/BtnGoToEmergency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/BtnPlan"
+        android:layout_marginTop="-126dp"
+        android:layout_marginBottom="76dp"
+
+        android:text="@string/intro_goEmergency" />
+
+    <Button
+        android:id="@+id/BtnPlan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="42dp"
+        android:gravity="center_horizontal"
+        android:text="@string/intro_plan" />
+
+    <Button
+        android:id="@+id/BtnSetTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="105dp"
+        android:gravity="center_horizontal"
+        android:text="@string/intro_setTime" />
+
+    <Button
+        android:id="@+id/option_1"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="647dp"
+        android:gravity="center_horizontal"
+        android:text="알림(test용)" />
+
+
+</RelativeLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_200"
+    tools:context=".AnalsysActivity">
+
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/message"/>
+
+    <TextView
+        android:id="@+id/matText"
+        android:layout_width="389dp"
+        android:layout_height="117dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/rect"
+        android:gravity="center"
+        android:text="주의요함\n 4시간 08분"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/lightText"
+        android:layout_width="389dp"
+        android:layout_height="117dp"
+        android:layout_below="@+id/frigerText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/rect"
+        android:gravity="center"
+        android:text="사용중\n3시간 42분"
+
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/frigerText"
+        android:layout_width="389dp"
+        android:layout_height="117dp"
+        android:layout_below="@+id/matText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/rect"
+        android:gravity="center"
+        android:text="열려있음"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/matLogo"
+        android:src="@drawable/mat"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/matText"
+        android:layout_alignLeft="@+id/matText"
+        android:layout_alignTop="@+id/matText"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="29dp" />
+
+    <ImageView
+        android:id="@+id/lightLogo"
+        android:src="@drawable/light"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/matText"
+        android:layout_alignLeft="@+id/matText"
+        android:layout_alignTop="@+id/lightText"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="28dp" />
+
+    <ImageView
+        android:id="@+id/frigerLogo"
+        android:src="@drawable/friger"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/frigerText"
+        android:layout_alignLeft="@+id/frigerText"
+        android:layout_alignTop="@+id/frigerText"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="29dp" />
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lightText"
+        android:layout_alignEnd="@+id/lightText"
+        android:layout_alignRight="@+id/lightText"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="뒤로가기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</RelativeLayout>
+
