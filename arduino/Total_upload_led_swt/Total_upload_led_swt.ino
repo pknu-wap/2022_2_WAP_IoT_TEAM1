@@ -4,10 +4,6 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 
-/*
- * IPAddress 를 써도 된다. 일단 지금 당장은 필요 없을 것으로 예상됨.
- */
-
 #define LED_PIN 22
 #define SWT_PIN 21
 #define LED_BUILTIN 2
@@ -19,16 +15,13 @@ unsigned long lastt = 0;
 const char *ssid = "APMode";
 const char *password = "nevergiveup";
 
-const char* ntpServer = "pool.ntp.org"; // Change to my ntpserver.
-const char* serverName = "<https://data.mongodb-api.com/app/application-0-mvnjh/endpoint/jihoon>"; // change to my server name.
+const char* serverName = "<https://data.mongodb-api.com/app/application-0-mvnjh/endpoint/RestServer>"; // change to my server name.
 
 StaticJsonDocument<500> doc;
 WiFiServer server(80);
 
 void POSTData()
 {
-  if(WiFi.status() == WL_CONNECTED)
-  {
     HTTPClient http;
 
     http.begin(serverName);
@@ -43,6 +36,9 @@ void POSTData()
 
     if(httpResponseCode == 200)
     {
+      String response = http.getString();
+      Serial.println(httpResponseCode);
+      Serial.println(response);
       Serial.println("Data uploaded.");
       digitalWrite(LED_BUILTIN, HIGH);
       delay(1000);
@@ -52,7 +48,7 @@ void POSTData()
     {
       Serial.println("ERROR : Couldn't upload Data.");
     }
-  }
+    http.end();
 }
 
 void setup() 
@@ -72,7 +68,6 @@ void setup()
   server.begin();
   
   Serial.println("Server started");
-  configTime(0, 0, ntpServer);
 
   digitalWrite(LED_BUILTIN, HIGH);  
   //pinMode(LED_BUILTIN, OUTPUT);
@@ -108,4 +103,5 @@ void loop()
   doc["sensors"]["time_of_Button"] = NotPressedTime/1000;
   Serial.println(NotPressedTime/1000);
   POSTData();
+  delay(500);
 }

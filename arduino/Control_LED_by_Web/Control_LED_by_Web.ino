@@ -121,7 +121,6 @@ void loop()
     client.stop();
     Serial.println("Client Disconnected.");
   }
-  setMillis(new_value);
 }
 
 

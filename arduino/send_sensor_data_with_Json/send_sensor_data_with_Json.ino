@@ -5,6 +5,7 @@
 #include "time.h"
 #include <WiFiClient.h>
 #include <WiFiAP.h>
+#include <WiFiSTA.h>
 
 #define DHTPIN 23
 #define SOILPIN 32
@@ -12,15 +13,14 @@
 #define LEDGREENPIN 15
 #define LEDREDPIN 16
 #define SOILPOWER 4
-#define ssid "APmode"
+#define ssid "APMode"
 #define password "nevergiveup"
 DHT dht(DHTPIN, DHT11);
 
 unsigned long epochTime; 
 unsigned long dataMillis = 0;
 
-const char* ntpServer = "pool.ntp.org";
-const char* serverName = "<mongo-server-endpoint-url-here>";
+const char* serverName = "<https://data.mongodb-api.com/app/application-0-mvnjh/endpoint/RestServer>";
 
 StaticJsonDocument<500> doc;
 
@@ -36,7 +36,8 @@ void setup()
     digitalWrite(LEDREDPIN, LOW);
     digitalWrite(SOILPOWER, LOW);
 
-    WiFi.softAP(ssid, password);
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(ssid, password);
     Serial.print("Connecting to Wi-Fi");
     while (WiFi.status() != WL_CONNECTED)
     {
@@ -47,8 +48,6 @@ void setup()
     Serial.print("Connected with IP: ");
     Serial.println(WiFi.softAPIP());
     Serial.println();
-
-    configTime(0, 0, ntpServer);
 }
 
 void loop()
