@@ -15,6 +15,6 @@
 ### Branches
 1. master -> Arduino [Redish03](https://github.com/Redish03), Android [wlgns7258](https://github.com/wlgns7258)
 2. main -> Android [PKLEEINJAE](https://github.com/PKLEEINJAE)
-3. else -> Android [PKLEEINJAE](https://github.com/PKLEEINJAE), [hyeonhh](https://github.com/hyeonhh)
+3. else -> Android [PKLEEINJAE](https://github.com/PKLEEINJAE), [hyeonhh](https://github.com/hyeonhh), [wlgns7258](https://github.com/wlgns7258)
 
 ![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)
