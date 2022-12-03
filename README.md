@@ -1,5 +1,8 @@
 # 2022_2_WAP_IoT_TEAM1
 
+## IoT Service <늘돌봄☘️>
+
+
 ## Contributers
 | 🙋🏽‍♂️ [wlgns7258](https://github.com/wlgns7258)| 🙋🏽‍♂️ [PKLEEINJAE](https://github.com/PKLEEINJAE)|[hyeonhh](https://github.com/hyeonhh)| 🙋🏽‍♂️ [Redish03](https://github.com/Redish03)|
 |--|--|--|--|
@@ -7,8 +10,11 @@
 
 
 
-## These are about our Services
-### 1. master -> Arduino [Redish03](https://github.com/Redish03)
-### 2. main -> Android [PKLEEINJAE](https://github.com/PKLEEINJAE)
+## This is about our Services 
+
+### Branches
+1. master -> Arduino [Redish03](https://github.com/Redish03), Android [wlgns7258](https://github.com/wlgns7258)
+2. main -> Android [PKLEEINJAE](https://github.com/PKLEEINJAE)
+3. else -> Android [PKLEEINJAE](https://github.com/PKLEEINJAE), [hyeonhh](https://github.com/hyeonhh)
 
 ![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)
