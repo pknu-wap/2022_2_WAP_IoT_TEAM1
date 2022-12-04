@@ -84,7 +84,7 @@ void loop()
   WiFiClient client = server.available();
 
   doc["sensors"]["Ultrasonic"] = distance;
-  Serial.println(distance);
+  
   POSTData();
   delay(500);
 }
