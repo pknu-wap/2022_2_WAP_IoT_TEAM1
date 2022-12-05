@@ -12,6 +12,11 @@
 
 ## This is about our Services 
 
+### We refered many datas. 
+1. [Manu Prakashs's Fold Scope](﻿https://www.youtube.com/watch?v=h8cF5QPPmWU)
+2. [서울 살피미 App](https://play.google.com/store/apps/details?id=kr.go.seoul.app.help&pli=1)
+3. [Zojirushi's I-poT](https://www.medgadget.com/2005/04/ipot.html)
+
 ### Branches
 1. master -> Arduino [Redish03](https://github.com/Redish03), Android [wlgns7258](https://github.com/wlgns7258)
 2. main -> Android [PKLEEINJAE](https://github.com/PKLEEINJAE)
